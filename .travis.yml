@@ -1,0 +1,7 @@
+language: php
+
+addons:
+  mariadb: '10.0'
+
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS testdb;'
