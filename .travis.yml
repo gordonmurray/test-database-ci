@@ -6,4 +6,5 @@ addons:
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS testdb;'
   - mysql testdb < sql/users.sql
+  - mysql --database=testdb -e 'ALTER TABLE users ADD COLUMN phone VARCHAR(15) AFTER email;'
   - mysql --database=testdb -e 'select * from users;'
