@@ -6,4 +6,4 @@ addons:
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS testdb;'
   - mysql testdb < sql/users.sql
-  - mysql -e 'select * from users;'
+  - mysql --database=testdb -e 'select * from users;'
