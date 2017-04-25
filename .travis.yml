@@ -1,4 +1,7 @@
-install: generic
+language: go
+
+go:
+  - 1.6
 
 addons:
   mariadb: '10.0'
