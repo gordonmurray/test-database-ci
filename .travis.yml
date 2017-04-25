@@ -1,3 +1,5 @@
+install: true
+
 addons:
   mariadb: '10.0'
 
