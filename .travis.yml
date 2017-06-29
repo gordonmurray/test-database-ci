@@ -1,10 +1,15 @@
-language: generic
+language: php
+
+php:
+  - '7.0'
+  - '7.1'
 
 addons:
   mariadb: '10.0'
 
+before_script: composer require "dbdiff/dbdiff:@dev"
+
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS testdb;'
-  - mysql testdb < sql/users.sql
-  - mysql --database=testdb -e 'ALTER TABLE users ADD COLUMN phone VARCHAR(15) AFTER email;'
-  - mysql --database=testdb -e 'select * from users;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS sourcedb;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS destinationdb;'
+  - mysql sourcedb < sql/users.sql
