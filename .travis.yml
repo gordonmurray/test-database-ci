@@ -11,7 +11,7 @@ before_script: composer require "dbdiff/dbdiff:@dev"
 before_install:
   - mysql -e "CREATE DATABASE IF NOT EXISTS ${SOURCE_DATABASE};"
   - mysql -e 'CREATE DATABASE IF NOT EXISTS destinationdb;'
-  - mysql sourcedb < sql/users.sql
+  - mysql ${SOURCE_DATABASE} < sql/users.sql
 
 script: 
   - php vendor/dbdiff/dbdiff/dbdiff server1.${SOURCE_DATABASE}:server2.destinationdb
