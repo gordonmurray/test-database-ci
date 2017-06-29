@@ -1,0 +1,13 @@
+server1:
+    user: root
+    password: 
+    port: 3306
+    host: localhost
+server2:
+    user: root
+    password: 
+    port: 3306
+    host: localhost
+type: schema
+include: up
+nocomments: true
