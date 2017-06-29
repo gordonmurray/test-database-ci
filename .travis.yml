@@ -13,3 +13,5 @@ before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS sourcedb;'
   - mysql -e 'CREATE DATABASE IF NOT EXISTS destinationdb;'
   - mysql sourcedb < sql/users.sql
+
+script: php vendor/dbdiff/dbdiff/dbdiff server1.sourcedb:server2.destinationdb
