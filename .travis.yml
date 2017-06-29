@@ -9,10 +9,10 @@ addons:
 before_script: composer require "dbdiff/dbdiff:@dev"
 
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS sourcedb;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS {{source_database}};'
   - mysql -e 'CREATE DATABASE IF NOT EXISTS destinationdb;'
   - mysql sourcedb < sql/users.sql
 
 script: 
-  - php vendor/dbdiff/dbdiff/dbdiff server1.sourcedb:server2.destinationdb
+  - php vendor/dbdiff/dbdiff/dbdiff server1.{{source_database}}:server2.destinationdb
   - cat /home/travis/build/gordonmurray/test-database-ci/migration.sql
